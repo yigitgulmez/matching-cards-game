@@ -31,6 +31,29 @@ reset.addEventListener('click', () => {
   container.classList.remove('fade-in');
 });
 
+function startEmojiRain(emojiSet, count = 50, duration = 3000) {
+  const interval = 100;
+  let created = 0;
+
+  const rainInterval = setInterval(() => {
+    if (created >= count) {
+      clearInterval(rainInterval);
+      return;
+    }
+
+    const emoji = document.createElement('div');
+    emoji.className = 'emoji-drop';
+    emoji.textContent = emojiSet[Math.floor(Math.random() * emojiSet.length)];
+    emoji.style.left = Math.random() * 100 + 'vw';
+    emoji.style.animationDuration = (1 + Math.random() * 2) + 's';
+
+    document.body.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), duration);
+    created++;
+  }, interval);
+}
+
 /* ------------- CARD ------------- */
 let cards = [];
 
@@ -93,6 +116,11 @@ function createGame() {
               [card1, card2].forEach(c => c.removeAttribute('data-clicked'));
               [card1, card2].forEach(c => c.setAttribute('data-disabled', 'true'));
               [back1, back2].forEach(b => b.classList.add('card-correct'));
+
+              const disabledCards = document.querySelectorAll('[data-disabled="true"]');
+              if (disabledCards.length === 32) {
+                startEmojiRain(icons);
+              }
             } else {
               [card1, card2].forEach(c => c.classList.add('shake'));
               [back1, back2].forEach(b => b.classList.add('card-wrong'));
