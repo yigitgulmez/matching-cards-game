@@ -1,0 +1,248 @@
+:root {
+  --text-color: #f8f8f2;
+  --bg-primary-color: #282a36;
+  --bg-secondary-color: #44475a;
+  --card-color: #6272a4;
+  --card-selected-color: #bd93f9;
+  --card-correct-color: #50fa7b;
+  --card-wrong-color: #ff5555;
+}
+
+body.obsidian {
+  --text-color: #e0e0e0;
+  --bg-primary-color: #1e1e1e;
+  --bg-secondary-color: #2a2a2a;
+  --card-color: #333333;
+  --card-selected-color: #3d3d3d;
+  --card-correct-color: #6fcf97;
+  --card-wrong-color: #cf6679;
+}
+
+body.nord {
+  --text-color: #d8dee9;
+  --bg-primary-color: #2e3440;
+  --bg-secondary-color: #3b4252;
+  --card-color: #434c5e;
+  --card-selected-color: #4c566a;
+  --card-correct-color: #a3be8c;
+  --card-wrong-color: #bf616a;
+}
+
+body.gruvbox {
+  --text-color: #ebdbb2;
+  --bg-primary-color: #282828;
+  --bg-secondary-color: #3c3836;
+  --card-color: #504945;
+  --card-selected-color: #665c54;
+  --card-correct-color: #b8bb26;
+  --card-wrong-color: #fb4934;
+}
+
+body.monokai {
+  --text-color: #f8f8f2;
+  --bg-primary-color: #272822;
+  --bg-secondary-color: #383830;
+  --card-color: #49483e;
+  --card-selected-color: #75715e;
+  --card-correct-color: #a6e22e;
+  --card-wrong-color: #f92672;
+}
+
+
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  user-select: none;
+  color: var(--text-color);
+}
+
+.window-open {
+  animation: fade-in 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+/* ------------- PAGE ------------- */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-primary-color);
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  width: 95%;
+  height: 95%;
+  background-color: var(--bg-secondary-color);
+  box-shadow: inset 0px 0px 25px 14px var(--card-color);
+}
+
+/* ------------- CARDS ------------- */
+#card-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 150px);
+  gap: 10px;
+}
+
+.card {
+  width: 120px;
+  height: 150px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  user-select: none;
+}
+
+.card-front {
+  background-color: var(--card-color);
+}
+
+.card-back {
+  background-color: var(--card-selected-color);
+  transform: rotateY(180deg);
+}
+
+.card-correct {
+  background-color: var(--card-correct-color) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.card-wrong {
+  background-color: var(--card-wrong-color) !important;
+}
+
+/* ------------- NAV ------------- */
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 10px;
+  top: 4rem;
+  right: 15rem;
+  width: 100%;
+  z-index: 50;
+}
+
+#reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: x-large;
+  background-color: var(--card-selected-color);
+  cursor: pointer;
+}
+
+select {
+  background-color: var(--card-selected-color);
+  padding: 5px 0 5px 9px;
+  border-radius: 10px;
+  font-size: x-large;
+  width: 140px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+option {
+  background: var(--bg-primary-color);
+}
+
+/* ------------- FOOTER ------------- */
+footer {
+  position: fixed;
+  display: flex;
+  justify-content: flex-start; 
+  bottom: 3rem;
+  left: 6.5rem;
+  width: 100%;
+}
+
+footer span {
+  padding-bottom: 1.25rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.footer-text {
+  display: inline-block;
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+footer span .footer-text::after{
+  content: attr(data-content);
+  position: absolute;
+	padding-inline-start: 0.5rem;
+  left: 0;
+  color: transparent;
+  transition: 600ms;
+}
+
+footer span:hover .footer-text::after
+{
+  text-shadow: 0 0 10px var(--card-color);
+}
