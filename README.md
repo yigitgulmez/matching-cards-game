@@ -1,7 +1,20 @@
 # Matching Card
 
-![Oyun Görseli](https://github.com/yigitgulmez/matching-cards-game/blob/main/images/image.png)
-![Oyun Görseli](https://github.com/yigitgulmez/matching-cards-game/blob/main/images/image%20(1).png)
-![Oyun Görseli](https://github.com/yigitgulmez/matching-cards-game/blob/main/images/image%20(2).png)
-![Oyun Görseli](https://github.com/yigitgulmez/matching-cards-game/blob/main/images/image%20(3).png)
-![Oyun Görseli](https://github.com/yigitgulmez/matching-cards-game/blob/main/images/image%20(4).png)
+<p align="center">
+  <table>
+    <tr>
+      <td><img src="https://github.com/yigitgulmez/matching-cards-game/raw/main/images/image.png" /></td>
+      <td><img src="https://github.com/yigitgulmez/matching-cards-game/raw/main/images/image%20(1).png" /></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/yigitgulmez/matching-cards-game/raw/main/images/image%20(2).png"/></td>
+      <td><img src="https://github.com/yigitgulmez/matching-cards-game/raw/main/images/image%20(3).png"/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <img src="https://github.com/yigitgulmez/matching-cards-game/raw/main/images/image%20(4).png"/>
+      </td>
+    </tr>
+  </table>
+</p>
+
