@@ -1,8 +1,8 @@
 /* ------------- THEME ------------- */
 const select = document.getElementById('theme-select');
 
-selectedTheme = localStorage.getItem('theme')
-document.body.classList.add(selectedTheme)
+let selectedTheme = localStorage.getItem('theme') || 'dracula';
+document.body.classList.add(selectedTheme);
 select.value = selectedTheme;
 select.addEventListener('change', () => {
   document.body.classList = ''
