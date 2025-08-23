@@ -48,7 +48,6 @@ body.monokai {
   --card-wrong-color: #f92672;
 }
 
-
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -130,7 +129,6 @@ main {
 #card-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(4, 150px);
   gap: 10px;
 }
 
@@ -244,15 +242,12 @@ footer span {
 
 .footer-text {
   display: inline-block;
-  padding-left: 0.5rem;
   position: relative;
 }
 
 footer span .footer-text::after{
   content: attr(data-content);
   position: absolute;
-	padding-inline-start: 0.5rem;
-  left: 0;
   color: transparent;
   transition: 600ms;
 }
@@ -260,4 +255,53 @@ footer span .footer-text::after{
 footer span:hover .footer-text::after
 {
   text-shadow: 0 0 10px var(--card-color);
+}
+
+@media screen and (max-width: 1440px) {
+  #card-grid {
+    scale: 0.8;
+  }
+  nav {
+    gap: 8px;
+    top: 3rem;
+    right: 5rem;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  #card-grid {
+    scale: 0.6;
+  }
+  footer {
+    bottom: 2.5rem;
+    left: 4rem;
+  }
+  nav {
+    right: 3rem;
+    scale: .9;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #card-grid {
+    scale: 0.4;
+  }
+  footer {
+    left: 3rem;
+  }
+  footer span {
+    font-size: 1rem ;
+  }
+  nav {
+    gap: 8px;
+    top: 3rem;
+    right: 0;
+    scale: .7;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #card-grid {
+    scale: 0.3;
+  }
 }
